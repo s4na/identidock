@@ -35,7 +35,7 @@ def mainpage():
 @app.route('/monster/<name>')
 def get_identicon(name):
 
-    name = html.escape(name, quote=True)
+    name = html.escape(request.form['name'], quote=True)
     image = cache.get(name)
     if image is None:
         print ("Cache miss", flush=True)
